@@ -109,7 +109,12 @@ class App extends Component {
     reader.onload = (e) => {
       const result = e.target.result;
       this.convertInBack(result);
-      this.state.fileDom.value = '';
+      this.setState({
+        fileDom: {
+          ...this.state.fileDom,
+          value: ''
+        }
+      })
     }
   }
   
@@ -145,7 +150,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src='http://img.90paw.com/2020-04-23%2021-16-18.png' className="App-logo" alt="logo"/>
+          <img src='https://img.imyangyong.com/blog/2020-04-23%2021-16-18.png' className="App-logo" alt="logo"/>
           {this.state.processing && <Alert message="稍等片刻，我们都希望它易如反掌。" type="info"/>}
           {this.state.downloaded && <Alert message="已下载！" type="success" showIcon/>}
           <div>
